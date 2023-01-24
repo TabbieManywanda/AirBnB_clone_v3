@@ -22,7 +22,7 @@ def stats():
     '''returns count of all class objects'''
     if request.method == 'GET':
         response = {}
-        PLURALS = {
+        accounts = {
                 'Amenity': 'amenities',
                 'City': 'cities',
                 'Place': 'places',
@@ -30,6 +30,6 @@ def stats():
                 'State': 'states',
                 'User': 'users'
                 }
-        for k, v in PLURALS.items():
+        for k, v in accounts.items():
             response[v] = storage.count(k)
         return jsonify(response)
